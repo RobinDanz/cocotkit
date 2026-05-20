@@ -4,9 +4,9 @@ from cocotkit.coco import COCODataset
 from cocotkit.resolver import MetadataResolver
 
 
-class SplitCommand(BaseCommand):
-    name = "split"
-    help = "Splits a COCO JSON file into multiple files"
+class FilterCommand(BaseCommand):
+    name = "filter"
+    help = "Filters a COCO JSON file"
 
     def add_arguments(self, parser):
         parser.add_argument("file", help="COCO JSON file")
@@ -14,4 +14,4 @@ class SplitCommand(BaseCommand):
     def run(self, args):
         dataset = COCOReader().read(args.file)
 
-        res = dataset.query().split("image").export(format="coco", resolver=MetadataResolver("./{name}.json")).collect()
+        res = dataset.query().filter(categories__name__neq="Unclassified").export(format="coco", resolver=MetadataResolver("out/test.json")).collect()

@@ -19,7 +19,7 @@ def main():
 
     command = commands[args.command]
     command.run(args)
-    
-    
+
+
 if __name__ == "__main__":
     main()

@@ -49,7 +49,7 @@ class COCOImage(COCOData):
 
 @dataclass
 class COCOAnnotation(COCOData):
-    bbox: Tuple[int, int, int, int]
+    bbox: Tuple[int, int, int, int] = field(default_factory=tuple)
     segmentation: List = field(default_factory=list)
     id: int = 0
     iscrowd: int = 0
@@ -67,9 +67,9 @@ class COCOCategory(COCOData):
 
 @dataclass
 class COCODataset(COCOData):
-    images: List[COCOImage]
-    annotations: List[COCOAnnotation]
-    categories: List[COCOCategory]
+    images: List[COCOImage] = field(default_factory=list)
+    annotations: List[COCOAnnotation] = field(default_factory=list)
+    categories: List[COCOCategory] = field(default_factory=list)
     meta: Dict[str, Any] = field(default_factory=dict, metadata={"serialize": False})
 
     @classmethod

@@ -106,6 +106,7 @@ OperatorRegistry.register(LteOperator())
 OperatorRegistry.register(GtOperator())
 OperatorRegistry.register(GteOperator())
 OperatorRegistry.register(InOperator())
+OperatorRegistry.register(NinOperator())
 OperatorRegistry.register(ContainsOperator())
 
 

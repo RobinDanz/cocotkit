@@ -18,8 +18,9 @@ cocotkit = "cocotkit.main:main"
 
 [dependency-groups]
 dev = [
-    "pytest>=9.0.3",
     "ruff>=0.15.11",
+    "pytest>=9.0.3",
+    "pytest-cov>=7.1.0",
 ]
 
 [tool.ruff]
@@ -27,4 +28,14 @@ line-length = 100
 target-version = "py311"
 
 [tool.pytest.ini_options]
+testpaths = ["tests"]
+
 pythonpath = ["src"]
+
+addopts = """
+-ra
+-q
+--cov=src/cocotkit
+--cov-report=term-missing
+--cov-report=html
+"""

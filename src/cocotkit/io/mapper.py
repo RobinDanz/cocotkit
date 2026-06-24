@@ -30,12 +30,12 @@ class BboxMapper(ColumnMapper):
         x_max = max(xs)
         y_max = max(ys)
 
-        return (
+        return [
             x_min,
             y_min,
             x_max - x_min,
             y_max - y_min,
-        )
+        ]
     
 class AreaMapper(ColumnMapper):
     def map(self, value, **kwargs):

@@ -7,11 +7,17 @@ wheels/
 *.egg-info
 .ruff_cache
 
+# Tests
+.coverage
+htmlcov/
+
 # Virtual environments
 .venv
 
 # IDE files
 .vscode
 
-# Local images
+
+
+# Local data
 out/
